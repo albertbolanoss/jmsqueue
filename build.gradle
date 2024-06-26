@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.activemq:activemq-all:6.1.2'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+}
+
+compileJava {
+    options.compilerArgs << '--release' << '17'
+}
+
+application {
+    mainClass = 'org.example.JMSQueueExample'
+}
+
+tasks.register('runMainClass', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.example.JMSQueueExample'
+}
