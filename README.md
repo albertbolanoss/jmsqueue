@@ -37,5 +37,8 @@ Note: If you can see the listeners of the port, verify the firewall input and ou
 
 # Run
 
+```sh
+./gradlew runMainClass
+```
 
 
